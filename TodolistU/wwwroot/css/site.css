@@ -1,0 +1,48 @@
+/* Styla bakgrundsfärgen för hela sidan */
+body {
+    background-color: black;
+}
+/* Styla container för varje uppgift */
+.task-container {
+    background-color: white;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+h1 {
+    color: white; 
+    margin-right: 0 auto;
+    margin-left: 0; 
+}
+p {
+    color: white; 
+}
+label {
+color: white;
+}
+.container {
+    width: 97%; 
+    margin: 0 auto; 
+    padding: 10px; 
+}
+/* Styla storleken på Utförd-knappen */
+.btn-success {
+    width: 80px; /* Ange önskad bredd */
+    height: 40px; /* Ange önskad höjd */
+   
+}
+.utfört-container {
+    background-color: #e0ffe0; /* Ljusgrön färg för utförda uppgifter */
+}
+/* Styla storleken på Radera-knappen */
+.btn-danger {
+    width: 80px; /* Ange önskad bredd */
+    height: 40px; /* Ange önskad höjd */
+   
+}
+.beskrivning {
+    color: black; /* Sätt textfärgen till vit */
+}
+/* Styla bock-tecknet */
+.completed-task {
+    color: green;
+}

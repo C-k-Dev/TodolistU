@@ -1,0 +1,50 @@
+﻿<!-- Index, hanterar listan -->
+<body>
+    <div class="container">
+        <h1>To-Do List</h1>
+        <p>Antal objekt i listan: @Model.Count</p>
+        <a asp-action="Add" class="btn btn-primary">Lägg till ny uppgift</a>
+        </div>
+        <br /> 
+
+    @if (Model != null && Model.Count > 0)
+    {
+                    <ul>
+            @for (int i = 0; i < Model.Count; i++)
+            {
+                                    <div class="task-container"> <!-- Lägg till en container för varje uppgift -->
+                                        <li>
+                                            <div>
+                                                <strong>@Model[i].Titel</strong> <!-- Visa Titel som fet text -->
+                                                <span id="completed-icon-@i" class="completed-icon">@if (Model[i].ÄrKlar)
+                                {
+                                                                <span class="check-mark">[Utförd] ✓</span>
+                                }</span> <!-- Bocktecken som osynligt om inte uppgiften är klar -->
+                                                <br />
+                                                <span class="beskrivning">@Model[i].Beskrivning</span> <!-- Visa Beskrivning som en span -->
+                                            </div>
+
+                        @if (!Model[i].ÄrKlar)
+                        {
+                                                        <form id="complete-form-@i" asp-action="Complete" method="post">
+                                                            <input type="hidden" name="id" value="@i" />
+                                                            <button type="submit" class="btn btn-success">Utförd</button>
+                                                        </form>
+                        }
+
+                                            <form asp-action="Delete" method="post">
+                                                <input type="hidden" name="id" value="@i" />
+                                                <button type="submit" class="btn btn-danger">Radera</button>
+                                            </form>
+                                        </li>
+                                    </div>
+            }
+                    </ul>
+    }
+    else
+    {
+                    <p>Inga uppgifter tillagda ännu.</p>
+    }
+    </div>
+
+</body>
